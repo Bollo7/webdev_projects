@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Fylo data storage component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+    :root{
+      --pale_blue: hsl(243, 100%, 93%);
+      --gray_blue: hsl(229, 7%, 55%);
+      --dark_blue: hsl(228, 56%, 26%);
+      --very_dark_blue: hsl(229, 57%, 11%);
+      --font_size: 14px;
+      --font_family: "Montserrat";
+      --gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%))
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    body {
+      font-family: var(--font_family);
+    }
+
+    .attribution {
+      position: absolute;
+      bottom: 0%;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a { 
+      color: hsl(228, 45%, 44%); 
+    }
+    
+    .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-image: url("images/bg-mobile.png");
+      background-size: cover;
+    }
+
+    .component {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 19rem;
+      max-width: 19rem;
+      min-height: 13rem;
+      background: var(--dark_blue);
+      border-radius: 3%;
+    }
+
+    .upper_component {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-left: 1.3rem;
+      margin-bottom: 1rem;
+      border-top-right-radius: 35%;
+    }
+
+    .container_center {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1rem;
+    }
+
+    .container_center #icon-logo {
+      padding-bottom: 2rem;
+      padding-right: 15rem;
+    }
+
+    .icons_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: baseline;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-right: 13rem;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      background: var(--very_dark_blue);
+      border-radius: 10%;
+      transition: background 0.3s ease-in-out;
+    }
+
+    .icon:hover {
+      background: var(--pale_blue);
+    }
+
+    .lower_component {
+      font-size: var(--font_size);
+      max-height: 13rem;
+      overflow-y: visible;
+    }
+
+    .lower_component p {
+      color: var(--pale_blue);
+    }
+
+    .lower_component span {
+      font-weight: 700;
+    }
+
+    .progress_bar {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bar_limits {
+      display: flex;
+      flex-direction: row;
+      gap: 10rem;
+      font-size: var(--font_size);
+      font-weight: 700;
+    }
+
+    .progress {
+      flex-direction: row;
+      border-radius: 1rem;
+      order: -1;
+      width: 16rem;
+      height: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 2px;
+      background: var(--very_dark_blue);
+    }
+
+    .progress .filling {
+      flex: 1;
+      height: 1.3rem;
+      max-width: 15.5rem;
+      margin-right: 5rem;
+      padding-left: 9.5rem;
+      border-radius: 1rem;
+      background: var(--gradient);
+    }
+
+    .filling .round_pin{
+      width: 1.3rem;
+      height: 1.3rem;
+      background: white;
+      border-radius: 100%;
+    }
+
+    .storage_card {
+      display: flex;
+      height: 4.5rem;
+      width: 11rem;
+      margin-top: 2rem;
+      background: white;
+      border-radius: 5%;
+    }
+
+    .storage_card span {
+      font-size: 40px;
+      color: var(--dark_blue);
+    }
+
+    .storage_card h2 {
+      align-self: center;
+      justify-self: center;
+      font-size: var(--font_size);
+      color: var(--gray_blue);
+    }
+
+  </style>
+  
+
+</head>
+<body>
+  <div class="container">
+    <!-- Upper component with round corner and icons -->
+    <div class="component upper_component">
+      <!-- Container center -->
+      <div class="container_center">
+        <object id="icon-logo" data="./images/logo.svg"></object><h1 class="header"></h1>
+        <!-- Container with icons -->
+        <div class="icons_container">
+          <!-- Icon objects -->
+          <div class="icon">
+            <object data="./images/icon-document.svg"> </object>
+          </div>
+          <div class="icon">
+            <object id="icon" data="./images/icon-folder.svg"> </object>
+          </div>
+          <div class="icon">
+            <object id="icon" data="./images/icon-upload.svg"> </object>
+          </div>  
+          <!-- Icon objects end -->
+        </div>
+        <!-- Container with icons end -->
+      </div>
+      <!-- Container center -->
+    </div>
+
+    <!-- Lower components with progress bar and info -->
+    <div class="component lower_component">
+      <!-- Text info -->
+      <p class="text_info">You’ve used <span>815 GB</span> of your storage</p>
+      <!-- Progress Bar -->
+      <div class="progress_bar">
+        <!-- Lower and upper limits -->
+        <div class="bar_limits">
+          <p class="left_limit">0 GB</p>
+          <p class="right_limit">1000 GB</p>
+        </div>
+        <!-- Lower and upper limits end -->
+        <!-- Progress scale -->
+        <div class="progress">
+          <!-- Pin at the end of a scale -->
+          <div class="filling">
+            <div class="round_pin"></div>
+          </div>
+        </div>
+        <!-- Progress scale end -->
+      </div>
+      <!-- Progress Bar end -->
+      <div class="storage_card">
+        <h2 class="storage_left_amount">
+          <span>185</span> GB Left
+        </h2>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </div>
+  
+</body>
+</html>
